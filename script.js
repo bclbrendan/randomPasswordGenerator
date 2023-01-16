@@ -88,10 +88,20 @@ var upperCasedCharacters = [
   'Z'
 ];
 let password = "";
-let passwordLength=12;
+//let passwordLength=12;
 // Function to prompt user for password options
 function getPasswordOptions() {
-  //let passwordLength = 12;
+   passwordLength = prompt("Define password length : ");
+   //need to limit size of password, 10 - 64
+   lcyesorno = confirm("include lowercase letters?");
+   numyesorno = confirm("include numbers?");
+   console.log(lcyesorno + numyesorno);
+   if(lcyesorno && numyesorno == false){
+    let nochoice = confirm("try again");
+  }
+  //trying to give error warning if nothing selected
+   console.log(lcyesorno + numyesorno)
+     return;
 }
 
 // Function for getting a random element from an array
@@ -103,8 +113,24 @@ return arr[randomnum];
 
 // Function to generate password with user input
 function generatePassword() {
+  getPasswordOptions();
+  let charPool = []
+  console.log("empty : "+ charPool)
+
+if(lcyesorno){
+  charPool = charPool.concat(lowerCasedCharacters);
+}
+console.log("lcs : " +charPool)
+
+if(numyesorno){
+  charPool = charPool.concat(numericCharacters);
+
+}
+
+
+console.log(charPool)
   for (let index = 0; index < passwordLength ; index++) {
-        password += getRandom(numericCharacters); 
+        password += getRandom(charPool); 
         console.log(password)
   }
   return password;
