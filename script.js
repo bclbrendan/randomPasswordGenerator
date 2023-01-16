@@ -87,20 +87,27 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+let password = "";
+let passwordLength=12;
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  //let passwordLength = 12;
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+var arraylength = arr.length;
+randomnum = Math.floor(Math.random() * arraylength);
+return arr[randomnum];
 }
 
 // Function to generate password with user input
 function generatePassword() {
-
+  for (let index = 0; index < passwordLength ; index++) {
+        password += getRandom(numericCharacters); 
+        console.log(password)
+  }
+  return password;
 }
 
 // Get references to the #generate element
